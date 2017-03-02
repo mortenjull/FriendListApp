@@ -4,8 +4,25 @@
              xmlns:local="clr-namespace:FriendListApp"
              x:Class="FriendListApp.MainPage">
 
-  <Label Text="Welcome to Xamarin Forms!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
-
+  <StackLayout Orientation="Vertical">
+    <Label Text="Friends"></Label>
+    <ListView  x:Name="FriendList" RowHeight="60">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>            
+            <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10">  
+              <Image x:Name="FriendImage"></Image>
+              <StackLayout Orientation="Vertical">
+                <Label x:Name="FriendName"></Label>
+                <Label x:Name="FriandLocation"></Label>
+              </StackLayout>             
+            </StackLayout>            
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+      <Button x:Name="FriendAdd" Text="Add a Friend" TextColor="White" BackgroundColor="Blue" BorderRadius="5px"></Button>
+    </StackLayout>
+  </StackLayout>
 </ContentPage>
