@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FriendListApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="FriendListApp.MainPage">
 
   <StackLayout Orientation="Vertical">
@@ -10,11 +11,24 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>            
-            <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10">  
-              <Image x:Name="FriendImage"></Image>
+            <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10">
+                <controls:CircleImage Source="https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png" Aspect="AspectFill">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="55"
+                                    Android="55"
+                                    WinPhone="75" />
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="55"
+                                    Android="55"
+                                    WinPhone="75" />
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
               <StackLayout Orientation="Vertical">
-                <Label x:Name="FriendName"></Label>
-                <Label x:Name="FriandLocation"></Label>
+                <Label x:Name="FriendName">name</Label>
+                <Label x:Name="FriandLocation">location</Label>
               </StackLayout>             
             </StackLayout>            
           </ViewCell>
@@ -22,7 +36,7 @@
       </ListView.ItemTemplate>
     </ListView>
     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-      <Button x:Name="FriendAdd" Text="Add a Friend" TextColor="White" BackgroundColor="Blue" BorderRadius="5px"></Button>
+      <Button x:Name="FriendAdd" Text="Add a Friend"></Button>
     </StackLayout>
   </StackLayout>
 </ContentPage>
