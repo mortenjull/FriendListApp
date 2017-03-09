@@ -1,6 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FriendListApp.Pages.FriendView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="FriendListApp.Pages.FriendPage">
+
+     <StackLayout BackgroundColor="White" Orientation="Vertical">
+      <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+          <abstractions:CircleImage Source="{Binding Image}" Aspect="AspectFill">
+                    <abstractions:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="55"
+                                    Android="55"
+                                    WinPhone="75" />
+                    </abstractions:CircleImage.WidthRequest>
+                    <abstractions:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="55"
+                                    Android="55"
+                                    WinPhone="75" />
+                    </abstractions:CircleImage.HeightRequest>
+                </abstractions:CircleImage>
+        </StackLayout>
+        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+          <Label>Test</Label>
+        </StackLayout>
+      </StackLayout>
+    
+      <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></StackLayout>
+    
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <Button BackgroundColor="Aqua" Text="Call" Clicked="Call_OnClicked"></Button>
+        <Button BackgroundColor="Aqua" Text="SMS" Clicked="SMS_OnClicked"></Button>
+      </StackLayout>
+    </StackLayout>
 </ContentPage>

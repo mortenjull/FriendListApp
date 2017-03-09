@@ -7,12 +7,12 @@
 
   <StackLayout Orientation="Vertical">
     <Label Text="Friends"></Label>
-    <ListView  x:Name="FriendList" RowHeight="60">
+    <ListView  x:Name="FriendList" RowHeight="60" BackgroundColor="Gray">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>            
-            <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10">
-                <controls:CircleImage Source="https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png" Aspect="AspectFill">
+            <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal" Spacing="10" BackgroundColor="White">
+                <controls:CircleImage Source="{Binding Image}" Aspect="AspectFill">
                     <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double"
                                     iOS="55"
@@ -27,16 +27,19 @@
                     </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
               <StackLayout Orientation="Vertical">
-                <Label x:Name="FriendName">name</Label>
-                <Label x:Name="FriandLocation">location</Label>
-              </StackLayout>             
+                <Label x:Name="FriendName" Text="{Binding Name}"></Label>
+                <Label x:Name="FriandLocation" Text="{Binding Location}"></Label>
+              </StackLayout>
+              <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                <Button x:Name="FriendDetails" Clicked="FriendDetails_OnClicked" BorderRadius="10" Text="=>" BackgroundColor="Aqua"></Button>
+              </StackLayout>      
             </StackLayout>            
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-      <Button x:Name="FriendAdd" Text="Add a Friend"></Button>
+      <Button x:Name="FriendAdd" Text="Add a Friend" BorderRadius="10" BackgroundColor="Aqua"></Button>
     </StackLayout>
   </StackLayout>
 </ContentPage>
