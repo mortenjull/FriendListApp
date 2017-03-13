@@ -18,19 +18,25 @@ namespace FriendListApp.Backend
             {
                 new Friend()
                 {
-                    Name = "Test",
-                    Location = "Test",
+                    Name = "Morten Vismark",
+                    Location = "IDK",
                     Image =
                         ImageSource.FromUri(
-                            new Uri("https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png"))
+                            new Uri("https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png")),
+                    Address = "AbeKatteVej 12",
+                    FavoriteFood = "Tissemand",
+                    PhoneNumber = "12345678"
                 },
                 new Friend()
                 {
-                    Name = "Test2",
-                    Location = "Test2",
+                    Name = "Tim",
+                    Location = "Secundary realm",
                     Image =
                         ImageSource.FromUri(
-                            new Uri("https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png"))
+                            new Uri("https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png")),
+                    Address = "Wizard bullewand",
+                    FavoriteFood = "saltede kiks og nullermænd",
+                    PhoneNumber = "12345678"
                 }
             };
             

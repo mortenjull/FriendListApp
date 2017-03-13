@@ -7,7 +7,7 @@
 
   <StackLayout Orientation="Vertical">
     <Label Text="Friends"></Label>
-    <ListView  x:Name="FriendList" RowHeight="60" BackgroundColor="Gray">
+    <ListView ItemTapped="FriendList_OnItemTapped"  x:Name="FriendList" RowHeight="60" BackgroundColor="Gray">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>            
@@ -30,8 +30,7 @@
                 <Label x:Name="FriendName" Text="{Binding Name}"></Label>
                 <Label x:Name="FriandLocation" Text="{Binding Location}"></Label>
               </StackLayout>
-              <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
-                <Button x:Name="FriendDetails" Clicked="FriendDetails_OnClicked" BorderRadius="10" Text="=>" BackgroundColor="Aqua"></Button>
+              <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">               
               </StackLayout>      
             </StackLayout>            
           </ViewCell>

@@ -22,11 +22,11 @@ namespace FriendListApp
 
             this.FriendList.ItemsSource = _friendManager.GetFriends();
         }
-
-        private async void FriendDetails_OnClicked(object sender, EventArgs e)
+        
+        private async void FriendList_OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             Friend friend = FriendList.SelectedItem as Friend;
-            await Navigation.PushAsync(new FriendPage(friend));           
+            await Navigation.PushAsync(new FriendPage(friend));
         }
     }
 }

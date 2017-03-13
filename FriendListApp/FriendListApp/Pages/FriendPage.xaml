@@ -1,37 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="FriendListApp.Pages.FriendPage">
 
-     <StackLayout BackgroundColor="White" Orientation="Vertical">
-      <StackLayout Orientation="Horizontal">
-        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
-          <abstractions:CircleImage Source="{Binding Image}" Aspect="AspectFill">
-                    <abstractions:CircleImage.WidthRequest>
+     <StackLayout Orientation="Vertical">
+       <StackLayout Orientation="Vertical">
+         <controls:CircleImage x:Name="CircleImage" HorizontalOptions="Center" Source="{Binding Image}" Aspect="AspectFill">
+                    <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double"
                                     iOS="55"
                                     Android="55"
                                     WinPhone="75" />
-                    </abstractions:CircleImage.WidthRequest>
-                    <abstractions:CircleImage.HeightRequest>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double"
                                     iOS="55"
                                     Android="55"
                                     WinPhone="75" />
-                    </abstractions:CircleImage.HeightRequest>
-                </abstractions:CircleImage>
-        </StackLayout>
-        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
-          <Label>Test</Label>
-        </StackLayout>
-      </StackLayout>
-    
-      <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></StackLayout>
-    
-      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-        <Button BackgroundColor="Aqua" Text="Call" Clicked="Call_OnClicked"></Button>
-        <Button BackgroundColor="Aqua" Text="SMS" Clicked="SMS_OnClicked"></Button>
-      </StackLayout>
-    </StackLayout>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+       <Label HorizontalOptions="Center" Text="{Binding Name}"></Label>
+       <Button Text="Take picture" Clicked="TakePicture"></Button>
+       </StackLayout>      
+       <TableView>
+         <TableRoot>
+            <TableSection>
+             <EntryCell Label="Lacation: " Text="{Binding Location}"></EntryCell>
+             <EntryCell Label="Address: " Text="{Binding Address}"></EntryCell>
+             <EntryCell Label="Favorite Food: " Text="{Binding FavoriteFood}"></EntryCell>
+             <EntryCell Label="PhoneNumber: " Text="{Binding PhoneNumber}"></EntryCell>
+            <EntryCell  x:Name="ImageSouce" Label="ImageSouce: " ></EntryCell>
+           </TableSection>
+         </TableRoot>
+       </TableView>        
+     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">  
+       <Button Clicked="Call_OnClicked" Text="Call" BorderRadius="10" BackgroundColor="Aqua"></Button>
+     <Button Clicked="SMS_OnClicked" Text="SMS" BorderRadius="10" BackgroundColor="Aqua"></Button>
+     </StackLayout>      
+   </StackLayout>
 </ContentPage>
