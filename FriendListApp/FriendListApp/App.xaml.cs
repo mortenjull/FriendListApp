@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using FriendListApp.Backend.SQLite;
 using Xamarin.Forms;
 
 namespace FriendListApp
@@ -13,7 +13,9 @@ namespace FriendListApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            SQLiteDataBase dataBase = new SQLiteDataBase();
+
+            MainPage = new NavigationPage(new MainPage(dataBase));
         }
 
         protected override void OnStart()
