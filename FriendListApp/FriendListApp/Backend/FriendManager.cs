@@ -44,9 +44,9 @@ namespace FriendListApp.Backend
 
         }
 
-        public List<Friend> GetFriends()
+        public IEnumerable<Friend> GetFriends()
         {
-            return _dataBase.GetFriends() as List<Friend>;
+            return _dataBase.GetFriends();
         }
 
         public bool AddFriend(Friend friend)
@@ -56,7 +56,7 @@ namespace FriendListApp.Backend
                 _dataBase.AddFriend(friend);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }           

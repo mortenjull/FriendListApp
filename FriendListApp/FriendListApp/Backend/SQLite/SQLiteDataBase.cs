@@ -16,22 +16,22 @@ namespace FriendListApp.Backend.SQLite
         public SQLiteDataBase()
         {
             _connection = DependencyService.Get<ISQL>().GetConnection();
-            _connection.CreateTable<SQLiteSetup>();
+            _connection.CreateTable<Friend>();
         }
 
-        public IEnumerable<SQLiteSetup> GetFriends()
+        public IEnumerable<Friend> GetFriends()
         {
-            return (from f in _connection.Table<SQLiteSetup>()
+            return (from f in _connection.Table<Friend>()
                 select f).ToList();
         }
-        public SQLiteSetup GetFriend(int id)
+        public Friend GetFriend(int id)
         {
-            return _connection.Table<SQLiteSetup>().FirstOrDefault(f => f.ID == id);
+            return _connection.Table<Friend>().FirstOrDefault(f => f.ID == id);
         }
 
         public void DeleteFriend(int id)
         {
-            _connection.Delete<SQLiteSetup>(id);
+            _connection.Delete<Friend>(id);
         }
 
         public void AddFriend(Friend friend)
@@ -46,7 +46,7 @@ namespace FriendListApp.Backend.SQLite
                 Name = friend.Name
             };
 
-            _connection.Insert(newFriend);
+            _connection.Insert(friend);
         }
     }
 }

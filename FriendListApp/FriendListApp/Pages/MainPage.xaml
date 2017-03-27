@@ -6,7 +6,7 @@
              x:Class="FriendListApp.MainPage">
 
   <StackLayout Orientation="Vertical">
-    <Label Text="Friends"></Label>
+    <Label Text="Friends" x:Name="test"></Label>
     <ListView ItemTapped="FriendList_OnItemTapped"  x:Name="FriendList" RowHeight="60" BackgroundColor="Gray">
       <ListView.ItemTemplate>
         <DataTemplate>

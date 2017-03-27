@@ -26,12 +26,12 @@ namespace FriendListApp.Pages
         {
             Friend friend = new Friend()
             {
-                Address = this.Address.ToString(),
-                FavoriteFood = this.Favorite.ToString(),
+                Address = this.Address.Text,
+                FavoriteFood = this.Favorite.Text,
                 Image = "https://blog.xamarin.com/wp-content/uploads/2014/12/CircleImages-1024x611.png",
-                Location = this.Location.ToString(),
-                Name = this.Name.ToString(),
-                PhoneNumber = this.PhoneNumber.ToString()
+                Location = this.Location.Text,
+                Name = this.Name.Text,
+                PhoneNumber = this.PhoneNumber.Text
             };
 
             _friendManager.AddFriend(friend);

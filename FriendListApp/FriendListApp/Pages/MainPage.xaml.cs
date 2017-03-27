@@ -15,11 +15,10 @@ namespace FriendListApp
     {
         private FriendManager _friendManager;
         private SQLiteDataBase _database;
-        private List<Friend> friends;
+        private IEnumerable<Friend> friends;
  
         public MainPage(SQLiteDataBase dataBase)
         {
-            //WorkArround
             _friendManager = new FriendManager(dataBase);
             friends = _friendManager.GetFriends();
 
