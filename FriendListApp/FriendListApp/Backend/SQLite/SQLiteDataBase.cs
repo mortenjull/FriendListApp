@@ -36,16 +36,7 @@ namespace FriendListApp.Backend.SQLite
 
         public void AddFriend(Friend friend)
         {
-            var newFriend = new SQLiteSetup
-            {
-                Image = friend.Image,
-                Address = friend.Address,
-                FavoriteFood = friend.FavoriteFood,
-                PhoneNumber = friend.PhoneNumber,
-                Location = friend.Location,
-                Name = friend.Name
-            };
-
+            
             _connection.Insert(friend);
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FriendListApp.Backend;
 using FriendListApp.Backend.Enities;
 using FriendListApp.Backend.SQLite;
+using Plugin.Geolocator;
 using Xamarin.Forms;
 
 namespace FriendListApp.Pages
@@ -20,6 +21,17 @@ namespace FriendListApp.Pages
             this._friendManager = new FriendManager(database);
             this.parent = parent;
             InitializeComponent();
+
+            
+            FindLocation();
+        }
+
+        private void FindLocation()
+        {
+            var locator = CrossGeolocator.Current;
+            var position = locator.GetPositionAsync().Result;
+
+            this.Location.Text = position.ToString();
         }
 
         private async void Button_Save(object sender, EventArgs e)
